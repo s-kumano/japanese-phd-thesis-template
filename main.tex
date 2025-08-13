@@ -1,0 +1,55 @@
+\documentclass{thesis}
+
+\input{contents/preamble}
+
+\thesisclass{博士論文}
+
+\title{Provisional English Title for a Doctoral Dissertation Currently Under Revision and Expected to Span Two to Three Lines}
+
+\japanesetitle{（ここに恐らく二、三行の日本語タイトルが入ると思いますが一行でも大丈夫です）}
+
+\studentnumber{12-345678}
+\author{山田 太郎}
+
+\supervisor{指導教員 佐藤 次郎 教授}
+\dept{東京大学大学院 情報理工学系研究科 電子情報学専攻}
+
+\submissiontext{This dissertation is submitted for the degree of}
+\degreetitle{Doctor of Philosophy}
+
+\date{December 2025}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\input{contents/acknowledgements}
+
+\input{contents/abstract}
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\mainmatter
+
+\input{contents/chapter_1}
+\input{contents/chapter_2}
+
+% bibtex
+\bibliography{xampl}
+\bibliographystyle{abbrv}
+
+% biblatex
+%\printbibliography[heading=bibintoc]
+
+\appendix
+
+\input{contents/chapter_3}
+\input{contents/chapter_4}
+
+\end{document}
