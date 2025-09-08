@@ -2,7 +2,7 @@
 %% A PhD thesis LaTeX template for Japanese                          %%
 %% inspired by https://github.com/kks32/phd-thesis-template/         %%
 %%                                                                   %%
-%% Version v1.1.1                                                    %%
+%% Version v1.2                                                      %%
 %% Author: Soichiro Kumano                                           %%
 %% License: MIT License                                              %%
 %% Copyright (c) 2025 Soichiro Kumano                                %%
@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis}[2025/09/08 v1.1.1 PhD Thesis Class for Japanese]
+\ProvidesClass{thesis}[2025/09/08 v1.2 PhD Thesis Class for Japanese]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -61,6 +61,30 @@
 \fi
 
 \RequirePackage{microtype}
+
+%%%%%%%%%%%%% Header / Footer %%%%%%%%%%%%%
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead[RE]{\nouppercase\leftmark}
+\fancyhead[LO]{\nouppercase\rightmark}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot[C]{}
+
+\setlength{\headheight}{14.5pt}
+
+\ifLuaTeX\else
+  \renewcommand{\cleardoublepage}{
+    \clearpage
+    \if@twoside\ifodd\c@page\else
+      \hbox{}
+      \thispagestyle{empty}
+      \newpage
+      \if@twocolumn\hbox{}\newpage\fi
+    \fi\fi
+  }
+\fi
 
 %%%%%%%%%%%%% Title %%%%%%%%%%%%%
 

@@ -18,6 +18,7 @@ https://github.com/kks32/phd-thesis-template/
 - （`Size`セクション）余白を一般的なものに．
 - （`Font`セクション）英語はTimes系．日本語はLuaLaTeXとXeLaTeXでNoto Serif CJK JP（源ノ明朝），pdfLaTeXでIPAex明朝．
 - （`Typesetting`セクション）`microtype`をデフォルトで読み込み．
+- （`Header / Footer`セクション）`fancyhdr`の導入．
 - （`Title`セクション）表紙レイアウトの自動調節．
 - （`Acknowledgements / Abstract`セクション）両面印刷対応を含む，一般的な環境の提供．
 - （`ToC / LoF / LoT`セクション）目次・図表リストにて以下の変更．
