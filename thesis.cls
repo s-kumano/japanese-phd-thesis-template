@@ -2,7 +2,7 @@
 %% A PhD thesis LaTeX template for Japanese                          %%
 %% inspired by https://github.com/kks32/phd-thesis-template/         %%
 %%                                                                   %%
-%% Version v1.1                                                      %%
+%% Version v1.1.1                                                    %%
 %% Author: Soichiro Kumano                                           %%
 %% License: MIT License                                              %%
 %% Copyright (c) 2025 Soichiro Kumano                                %%
@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis}[2025/09/04 v1.1 PhD Thesis Class for Japanese]
+\ProvidesClass{thesis}[2025/09/08 v1.1.1 PhD Thesis Class for Japanese]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -30,7 +30,7 @@
   scale = 0.75
 ]{geometry}
 
-%%%%%%%%%%%%% Font / Typesetting %%%%%%%%%%%%%
+%%%%%%%%%%%%% Font %%%%%%%%%%%%%
 
 \ifLuaTeX
   \RequirePackage{luatexja}
@@ -38,31 +38,29 @@
   \setmainfont{Times New Roman}
   \setmainjfont{Noto Serif CJK JP}
   \ltjsetparameter{jacharrange={-2}}
+  
+\else\ifXeTeX
+  \RequirePackage{zxjatype}
+  \setmainfont{Times New Roman}
+  \setjamainfont{Noto Serif CJK JP}
+  
+\else
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{newtxtext}
+  \RequirePackage[whole]{bxcjkjatype}
+  \setminchofont{ipaexm.ttf}
+  \AddToHook{package/after/hyperref}{\hypersetup{CJKbookmarks=true}}
+  
+\fi\fi
 
+%%%%%%%%%%%%% Typesetting %%%%%%%%%%%%%
+
+\ifLuaTeX
   \RequirePackage{silence}
   \WarningFilter{luatexja}{LuaTeX-ja's patch against the microtype package}
-  
-  \RequirePackage{microtype}
-\else
-  \ifXeTeX
-    \RequirePackage{zxjatype}
-    \setmainfont{Times New Roman}
-    \setjamainfont{Noto Serif CJK JP}
-    
-    \RequirePackage{microtype}
-  \else
-    \ifPDFTeX
-      \RequirePackage[T1]{fontenc}
-      \RequirePackage{newtxtext}
-      \RequirePackage[whole]{bxcjkjatype}
-      \setminchofont{ipaexm.ttf}
-      
-      \RequirePackage{microtype}
-      
-      \AddToHook{package/after/hyperref}{\hypersetup{CJKbookmarks=true}}
-    \fi
-  \fi
 \fi
+
+\RequirePackage{microtype}
 
 %%%%%%%%%%%%% Title %%%%%%%%%%%%%
 
